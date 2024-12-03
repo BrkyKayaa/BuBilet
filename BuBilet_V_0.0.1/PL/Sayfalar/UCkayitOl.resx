@@ -117,17 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BtnDegistir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAV5JREFUWEft170uBFEYh/GJwndUatFQcQUU4hIItU58RCU6CnET7kDoJQohIRQK
-        KpEIl6BAJ8HzTJzkjN1ibHbPKOaf/JI9uyvvG3NmzztZnQ5nHEvoy1cV5BFfOMOAb6TOMWygsiYseI7Q
-        xAUGkTSlmzjCEybgH13jDsMYxQNeWvSG0IBOUEgvPuCHK5j8ea0ZLEbrdrCWNQuZwy7CRlnFJrrQjW3s
-        t+gGofgn1pEsU3hFKL6BZJlGuP7Ji5tnVFbcHMINl/Sa/07Dbq/zl1T673PjuIHcSMnjLeOt4y3krZQ0
-        cXF/RPwxSZZlhOLv8CBKFq95KC4PkGYHSxk78ADzINvCGoxzwB7m81WU+DhulwXMRmvnDBvxtbV6UIhD
-        QviyvP7Nhosy7jECh5lbXKIfNuHQc4CG+IVThAauMISk+RdNOBE5QocmHK2TJ27Ch4tK4uOUj1Vj+apO
-        R5Jl35nlsOWMLh6RAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>

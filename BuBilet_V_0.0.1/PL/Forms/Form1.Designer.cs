@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuBilet));
             this.PnlSidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.PnlSidebarTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.BtnSideBarControl = new Guna.UI2.WinForms.Guna2Button();
             this.BtnOtobus = new Guna.UI2.WinForms.Guna2Button();
             this.BtnUcak = new Guna.UI2.WinForms.Guna2Button();
             this.BtnBilet = new Guna.UI2.WinForms.Guna2Button();
@@ -40,9 +41,8 @@
             this.BtnCikisYap = new Guna.UI2.WinForms.Guna2Button();
             this.BtnGirisYap = new Guna.UI2.WinForms.Guna2Button();
             this.PnlNavbar = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.LblTitle = new System.Windows.Forms.Label();
-            this.BtnSideBarControl = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CbxMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2CbxMaximize = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2CbxExit = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -53,6 +53,7 @@
             this.PnlSidebarTop.SuspendLayout();
             this.PnlSidebarBottom.SuspendLayout();
             this.PnlNavbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlSidebar
@@ -70,6 +71,7 @@
             // 
             // PnlSidebarTop
             // 
+            this.PnlSidebarTop.Controls.Add(this.BtnSideBarControl);
             this.PnlSidebarTop.Controls.Add(this.BtnOtobus);
             this.PnlSidebarTop.Controls.Add(this.BtnUcak);
             this.PnlSidebarTop.Controls.Add(this.BtnBilet);
@@ -77,8 +79,27 @@
             this.PnlSidebarTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlSidebarTop.Location = new System.Drawing.Point(0, 0);
             this.PnlSidebarTop.Name = "PnlSidebarTop";
-            this.PnlSidebarTop.Size = new System.Drawing.Size(265, 268);
+            this.PnlSidebarTop.Size = new System.Drawing.Size(265, 269);
             this.PnlSidebarTop.TabIndex = 2;
+            // 
+            // BtnSideBarControl
+            // 
+            this.BtnSideBarControl.Animated = true;
+            this.BtnSideBarControl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnSideBarControl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnSideBarControl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnSideBarControl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnSideBarControl.FillColor = System.Drawing.Color.Transparent;
+            this.BtnSideBarControl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnSideBarControl.ForeColor = System.Drawing.Color.White;
+            this.BtnSideBarControl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnSideBarControl.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.BtnSideBarControl.Image = ((System.Drawing.Image)(resources.GetObject("BtnSideBarControl.Image")));
+            this.BtnSideBarControl.Location = new System.Drawing.Point(77, 372);
+            this.BtnSideBarControl.Name = "BtnSideBarControl";
+            this.BtnSideBarControl.Size = new System.Drawing.Size(77, 52);
+            this.BtnSideBarControl.TabIndex = 8;
+            this.BtnSideBarControl.Click += new System.EventHandler(this.BtnSideBarControl_Click);
             // 
             // BtnOtobus
             // 
@@ -92,7 +113,7 @@
             this.BtnOtobus.ForeColor = System.Drawing.Color.White;
             this.BtnOtobus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnOtobus.HoverState.ForeColor = System.Drawing.Color.Transparent;
-            this.BtnOtobus.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.BtnOtobus.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.BtnOtobus.Image = ((System.Drawing.Image)(resources.GetObject("BtnOtobus.Image")));
             this.BtnOtobus.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnOtobus.ImageOffset = new System.Drawing.Point(5, 0);
@@ -118,7 +139,7 @@
             this.BtnUcak.ForeColor = System.Drawing.Color.White;
             this.BtnUcak.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnUcak.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnUcak.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.BtnUcak.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.BtnUcak.Image = ((System.Drawing.Image)(resources.GetObject("BtnUcak.Image")));
             this.BtnUcak.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnUcak.ImageOffset = new System.Drawing.Point(5, 0);
@@ -144,7 +165,7 @@
             this.BtnBilet.ForeColor = System.Drawing.Color.White;
             this.BtnBilet.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnBilet.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnBilet.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.BtnBilet.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.BtnBilet.Image = ((System.Drawing.Image)(resources.GetObject("BtnBilet.Image")));
             this.BtnBilet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnBilet.ImageOffset = new System.Drawing.Point(5, 0);
@@ -170,7 +191,7 @@
             this.BtnOtel.ForeColor = System.Drawing.Color.White;
             this.BtnOtel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnOtel.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnOtel.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.BtnOtel.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.BtnOtel.Image = ((System.Drawing.Image)(resources.GetObject("BtnOtel.Image")));
             this.BtnOtel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnOtel.ImageOffset = new System.Drawing.Point(5, 0);
@@ -206,7 +227,7 @@
             this.BtnCikisYap.ForeColor = System.Drawing.Color.White;
             this.BtnCikisYap.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnCikisYap.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnCikisYap.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.BtnCikisYap.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             this.BtnCikisYap.Image = ((System.Drawing.Image)(resources.GetObject("BtnCikisYap.Image")));
             this.BtnCikisYap.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnCikisYap.ImageOffset = new System.Drawing.Point(5, 0);
@@ -231,7 +252,7 @@
             this.BtnGirisYap.ForeColor = System.Drawing.Color.White;
             this.BtnGirisYap.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnGirisYap.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnGirisYap.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.BtnGirisYap.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
             this.BtnGirisYap.Image = ((System.Drawing.Image)(resources.GetObject("BtnGirisYap.Image")));
             this.BtnGirisYap.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnGirisYap.ImageOffset = new System.Drawing.Point(4, 0);
@@ -248,9 +269,8 @@
             // PnlNavbar
             // 
             this.PnlNavbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(58)))), ((int)(((byte)(111)))));
+            this.PnlNavbar.Controls.Add(this.guna2CirclePictureBox1);
             this.PnlNavbar.Controls.Add(this.LblTitle);
-            this.PnlNavbar.Controls.Add(this.BtnSideBarControl);
-            this.PnlNavbar.Controls.Add(this.guna2TextBox1);
             this.PnlNavbar.Controls.Add(this.guna2CbxMinimize);
             this.PnlNavbar.Controls.Add(this.guna2CbxMaximize);
             this.PnlNavbar.Controls.Add(this.guna2CbxExit);
@@ -259,6 +279,18 @@
             this.PnlNavbar.Name = "PnlNavbar";
             this.PnlNavbar.Size = new System.Drawing.Size(1919, 58);
             this.PnlNavbar.TabIndex = 1;
+            // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
+            this.guna2CirclePictureBox1.ImageRotate = 0F;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(12, 8);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(44, 44);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox1.TabIndex = 7;
+            this.guna2CirclePictureBox1.TabStop = false;
             // 
             // LblTitle
             // 
@@ -270,47 +302,6 @@
             this.LblTitle.Size = new System.Drawing.Size(125, 50);
             this.LblTitle.TabIndex = 0;
             this.LblTitle.Text = "BuBilet";
-            // 
-            // BtnSideBarControl
-            // 
-            this.BtnSideBarControl.Animated = true;
-            this.BtnSideBarControl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnSideBarControl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnSideBarControl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnSideBarControl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnSideBarControl.FillColor = System.Drawing.Color.Transparent;
-            this.BtnSideBarControl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BtnSideBarControl.ForeColor = System.Drawing.Color.White;
-            this.BtnSideBarControl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnSideBarControl.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-            this.BtnSideBarControl.Image = ((System.Drawing.Image)(resources.GetObject("BtnSideBarControl.Image")));
-            this.BtnSideBarControl.Location = new System.Drawing.Point(0, 1);
-            this.BtnSideBarControl.Name = "BtnSideBarControl";
-            this.BtnSideBarControl.Size = new System.Drawing.Size(77, 52);
-            this.BtnSideBarControl.TabIndex = 8;
-            this.BtnSideBarControl.Click += new System.EventHandler(this.BtnSideBarControl_Click);
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.AutoRoundedCorners = true;
-            this.guna2TextBox1.BorderRadius = 14;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(838, 13);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(229, 31);
-            this.guna2TextBox1.TabIndex = 3;
             // 
             // guna2CbxMinimize
             // 
@@ -390,6 +381,7 @@
             this.PnlSidebarBottom.ResumeLayout(false);
             this.PnlNavbar.ResumeLayout(false);
             this.PnlNavbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -401,7 +393,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2CbxMinimize;
         private Guna.UI2.WinForms.Guna2ControlBox guna2CbxMaximize;
         private Guna.UI2.WinForms.Guna2ControlBox guna2CbxExit;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2Panel PnlSidebarBottom;
         private Guna.UI2.WinForms.Guna2Panel PnlSidebarTop;
         private Guna.UI2.WinForms.Guna2Button BtnOtobus;
@@ -415,6 +406,7 @@
         private System.Windows.Forms.Timer TmrSideBarTransition;
         private Guna.UI2.WinForms.Guna2Panel PnlAnaPanel;
         private System.Windows.Forms.Label LblTitle;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
     }
 }
 
