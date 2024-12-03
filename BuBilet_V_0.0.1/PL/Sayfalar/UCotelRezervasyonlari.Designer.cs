@@ -50,7 +50,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
             this.Controls.Add(this.label1);
             this.Name = "UCotelRezervasyonlari";
-            this.Size = new System.Drawing.Size(1843, 1022);
+            this.Size = new System.Drawing.Size(1653, 964);
             this.ResumeLayout(false);
             this.PerformLayout();
 

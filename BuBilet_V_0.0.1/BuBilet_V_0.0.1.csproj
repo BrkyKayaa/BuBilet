@@ -90,6 +90,12 @@
     <Compile Include="PL\Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Sayfalar\UCkayitOl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCkayitOl.Designer.cs">
+      <DependentUpon>UCkayitOl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PL\Sayfalar\UCbiletKontrol.cs">
@@ -124,6 +130,9 @@
     </Compile>
     <EmbeddedResource Include="PL\Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Sayfalar\UCkayitOl.resx">
+      <DependentUpon>UCkayitOl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
