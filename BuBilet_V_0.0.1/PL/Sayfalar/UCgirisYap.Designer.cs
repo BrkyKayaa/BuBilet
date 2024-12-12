@@ -74,6 +74,7 @@
             this.BtnGirisYap.Size = new System.Drawing.Size(170, 37);
             this.BtnGirisYap.TabIndex = 2;
             this.BtnGirisYap.Text = "Giriş Yap!";
+            this.BtnGirisYap.Click += new System.EventHandler(this.BtnGirisYap_Click);
             // 
             // panel2
             // 

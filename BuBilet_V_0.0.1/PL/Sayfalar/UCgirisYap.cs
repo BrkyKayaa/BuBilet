@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace BuBilet_V_0._0._1.Sayfalar
 {
@@ -76,6 +77,46 @@ namespace BuBilet_V_0._0._1.Sayfalar
         {
             UCkayitOl kayitSayfasi = new UCkayitOl();
             panelEkle(kayitSayfasi);
+        }
+
+        NpgsqlConnection baglan = new NpgsqlConnection("Server=localhost;port=5432;Database=VTYS-proje;User Id=postgres;Password=admin123;");
+        private void BtnGirisYap_Click(object sender, EventArgs e)
+        {
+
+            using (baglan)
+            {
+                try
+                {
+                    baglan.Open();
+
+                    string query = "SELECT COUNT(*) FROM kullanicilar WHERE kullaniciad = @p1 AND kullanicisifre = @p2;";
+
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query,baglan))
+                    {
+                        cmd.Parameters.AddWithValue("@p1", TxtKullaniciAdi.Text);
+                        cmd.Parameters.AddWithValue("@p2", TxtSifre.Text);
+
+                        int result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if(result == 1)
+                        {
+                            MessageBox.Show("Başarılı");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Başarısız");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Hata: {ex.Message}");
+                }
+                finally
+                {
+                    baglan.Close();
+                }
+            }
         }
     }
 }
