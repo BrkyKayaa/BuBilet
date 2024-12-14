@@ -84,6 +84,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baglanti.cs" />
+    <Compile Include="Paneller.cs" />
     <Compile Include="PL\Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

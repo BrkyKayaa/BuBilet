@@ -14,11 +14,27 @@ using System.Windows.Forms;
 
 namespace BuBilet_V_0._0._1.Sayfalar
 {
+
     public partial class UCotobusler : UserControl
     {
+
+        private int _kullaniciID;
+        public int KullaniciID
+        {
+            get => _kullaniciID;
+            set
+            {
+                _kullaniciID = value;
+                LblKullaniciID.Text = value.ToString();
+            }
+        }
+
         public UCotobusler()
         {
             InitializeComponent();
+            PnlOtobuslerAnaPanel.Controls.Add(LblKullaniciID);
+            PnlOtobuslerAnaPanel.Controls.Add(PnlSearch);
+            PnlOtobuslerAnaPanel.Controls.Add(FlwPnlBiletler);
         }
 
         private void BtnDegistir_Click(object sender, EventArgs e)
@@ -35,57 +51,113 @@ namespace BuBilet_V_0._0._1.Sayfalar
 
         // Biletlerin olduğu panellerin oluşturulması
         private void BtnOtobusAra_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < 10; i++) 
+        {   
+            if(CmbxNereden.Text == "" || CmbxNereye.Text == "")
             {
-                Guna2Panel otobusPanelleri = new Guna2Panel
-                {
-                    Name = "otobusPaneli" + i,
-                    Size = new Size(664, 50),
-                    BackColor = Color.FromArgb(6, 58, 111),
-                    Location = new Point(3, 3),
-                    Margin = new Padding(3, 3, 3, 3),
-                    Tag = false
-                };
-
-                Label seferBilgileri = new Label
-                {
-                    Name = "seferBilgileri",
-                    Text = "Sefer " + i,
-                    Location = new Point(10,10),
-                    ForeColor = Color.White,
-                };
-
-                Guna2Button BtnIncele = new Guna2Button
-                {
-                    Name = "BtnIncele" + i,
-                    Text = "İncele",
-                    Location = new Point(545,10),
-                    ForeColor = Color.White,
-                    BackColor = otobusPanelleri.BackColor,
-                    FillColor = Color.FromArgb(31, 155, 120),
-                    Animated = true,
-                    BorderRadius = 10,
-                    Size = new Size(115, 25),
-                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                    Tag = otobusPanelleri,
-                };
-
-                BtnIncele.CustomizableEdges = new CustomizableEdges
-                {
-                    BottomLeft = true,
-                    BottomRight = true,
-                    TopLeft = true,
-                    TopRight = true
-                };
-
-                BtnIncele.Click += BtnIncele_Click;
-
-                otobusPanelleri.Controls.Add(seferBilgileri);
-                otobusPanelleri.Controls.Add(BtnIncele);
-
-                FlwPnlBiletler.Controls.Add(otobusPanelleri);
+                MessageBox.Show("Lütfen kalkış ve varış yerini seçiniz.");
             }
+            else
+            {
+                FlwPnlBiletler.Controls.Clear();
+                for (int i = 0; i < 10; i++)
+                {
+                    Guna2Panel otobusPanelleri = new Guna2Panel
+                    {
+                        Name = "otobusPaneli" + i,
+                        Size = new Size(664, 50),
+                        BackColor = Color.FromArgb(6, 58, 111),
+                        Location = new Point(3, 3),
+                        Margin = new Padding(3, 3, 3, 3),
+                        Tag = false
+                    };
+
+                    Label seferNumarasi = new Label
+                    {
+                        Name = "seferBilgileri",
+                        Text = "Sefer " + i,
+                        AutoSize = false,
+                        Size = new Size(0, 0),
+                        Location = new Point(10, 10),
+                        ForeColor = Color.White,
+                        Visible = true,
+                    };
+                    otobusPanelleri.Controls.Add(seferNumarasi);
+
+                    Label seferBilgisi = new Label
+                    {
+                        Name = "seferBilgisi",
+                        Text = "Sefer Bilgisi: ",
+                        AutoSize = false,
+                        Size = new Size(115, 25),
+                        Location = new Point(20, 10),
+                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                        ForeColor = Color.White
+                    };
+                    otobusPanelleri.Controls.Add(seferBilgisi);
+
+                    Label LblKalkisYeri = new Label
+                    {
+                        Name = "LblKalkisYeri",
+                        Text = CmbxNereden.Text,
+                        AutoSize = false,
+                        Size = new Size(100, 29),
+                        Location = new Point(135, 10),
+                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                        ForeColor = Color.White,
+                    };
+                    otobusPanelleri.Controls.Add(LblKalkisYeri);
+
+                    Guna2PictureBox yonIsareti = new Guna2PictureBox
+                    {
+                        Image = Resources.icons8_arrow_32__2_,
+                        Size = new Size(32, 32),
+                        Location = new Point(245, 3),
+                        SizeMode = PictureBoxSizeMode.Zoom
+                    };
+                    otobusPanelleri.Controls.Add(yonIsareti);
+
+                    Label LblVarisYeri = new Label
+                    {
+                        Name = "LblVarisYeri",
+                        Text = CmbxNereye.Text,
+                        AutoSize = false,
+                        Size = new Size(100, 29),
+                        Location = new Point(340, 10),
+                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                        ForeColor = Color.White
+                    };
+                    otobusPanelleri.Controls.Add(LblVarisYeri);
+
+
+                    Guna2Button BtnIncele = new Guna2Button
+                    {
+                        Name = "BtnIncele" + i,
+                        Text = "İncele",
+                        Location = new Point(545, 10),
+                        ForeColor = Color.White,
+                        BackColor = otobusPanelleri.BackColor,
+                        FillColor = Color.FromArgb(31, 155, 120),
+                        Animated = true,
+                        BorderRadius = 10,
+                        Size = new Size(115, 25),
+                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                        Tag = otobusPanelleri,
+                    };
+
+                    BtnIncele.CustomizableEdges = new CustomizableEdges
+                    {
+                        BottomLeft = true,
+                        BottomRight = true,
+                        TopLeft = true,
+                        TopRight = true
+                    };
+                    BtnIncele.Click += BtnIncele_Click;
+                    otobusPanelleri.Controls.Add(BtnIncele);
+
+                    FlwPnlBiletler.Controls.Add(otobusPanelleri);
+                }
+            }
+            
         }
 
         // İncele butonu için event
@@ -124,51 +196,51 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     BackColor = Color.FromArgb(6,58,111)
                 };
 
-                Label seferBilgisi = new Label
-                {
-                    Name = "seferBilgisi",
-                    Text = "Sefer Bilgisi: ",
-                    AutoSize = false,
-                    Size = new Size(115,25),
-                    Location = new Point(0, 10),
-                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                    ForeColor = Color.White
-                };
+                //Label seferBilgisi = new Label
+                //{
+                //    Name = "seferBilgisi",
+                //    Text = "Sefer Bilgisi: ",
+                //    AutoSize = false,
+                //    Size = new Size(115,25),
+                //    Location = new Point(0, 10),
+                //    Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                //    ForeColor = Color.White
+                //};
 
-                Label LblKalkisYeri = new Label
-                {
-                    Name = "LblKalkisYeri",
-                    Text = CmbxNereden.Text,
-                    AutoSize = false,
-                    Size = new Size(100, 29),
-                    Location = new Point(115,10),
-                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                    ForeColor = Color.White,
-                };
-                yolcuBilgiPaneli.Controls.Add(LblKalkisYeri);
-
-
-                Guna2PictureBox yonIsareti = new Guna2PictureBox
-                {
-                    Image = Resources.icons8_arrow_32__2_,
-                    Size = new Size(32, 32),
-                    Location = new Point(225, 3),
-                    SizeMode = PictureBoxSizeMode.Zoom
-                };
-                yolcuBilgiPaneli.Controls.Add(yonIsareti);
+                //Label LblKalkisYeri = new Label
+                //{
+                //    Name = "LblKalkisYeri",
+                //    Text = CmbxNereden.Text,
+                //    AutoSize = false,
+                //    Size = new Size(100, 29),
+                //    Location = new Point(115,10),
+                //    Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                //    ForeColor = Color.White,
+                //};
+                //yolcuBilgiPaneli.Controls.Add(LblKalkisYeri);
 
 
-                Label LblVarisYeri = new Label
-                {
-                    Name = "LblVarisYeri",
-                    Text = CmbxNereye.Text,
-                    AutoSize = false,
-                    Size = new Size(100,29),
-                    Location = new Point(290,10),
-                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                    ForeColor = Color.White
-                };
-                yolcuBilgiPaneli.Controls.Add(LblVarisYeri);
+                //Guna2PictureBox yonIsareti = new Guna2PictureBox
+                //{
+                //    Image = Resources.icons8_arrow_32__2_,
+                //    Size = new Size(32, 32),
+                //    Location = new Point(225, 3),
+                //    SizeMode = PictureBoxSizeMode.Zoom
+                //};
+                //yolcuBilgiPaneli.Controls.Add(yonIsareti);
+
+
+                //Label LblVarisYeri = new Label
+                //{
+                //    Name = "LblVarisYeri",
+                //    Text = CmbxNereye.Text,
+                //    AutoSize = false,
+                //    Size = new Size(100,29),
+                //    Location = new Point(290,10),
+                //    Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                //    ForeColor = Color.White
+                //};
+                //yolcuBilgiPaneli.Controls.Add(LblVarisYeri);
 
 
                 Label LblYolcuAdi = new Label
@@ -177,9 +249,9 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     Text = "Yolcu Adı:",
                     AutoSize = false,
                     Size = new Size(121, 23),
-                    Location = new Point(0, 50),
+                    Location = new Point(0, 10),
                     Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                    ForeColor = Color.White
+                    ForeColor = Color.White,
                 };
                 yolcuBilgiPaneli.Controls.Add(LblYolcuAdi);
 
@@ -190,9 +262,9 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     Text = "Yolcu Soyadı:",
                     AutoSize = false,
                     Size = new Size(121, 23),
-                    Location = new Point(0, 90),
+                    Location = new Point(0, 50),
                     Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                    ForeColor = Color.White
+                    ForeColor = Color.White,
                 };
                 yolcuBilgiPaneli.Controls.Add(LblYolcuSoyadi);
 
@@ -203,9 +275,9 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     Text = "Yolcu Telefon:",
                     AutoSize = false,
                     Size = new Size(121, 23),
-                    Location = new Point(0, 130),
+                    Location = new Point(0, 90),
                     Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                    ForeColor = Color.White
+                    ForeColor = Color.White,
                 };
                 yolcuBilgiPaneli.Controls.Add(LblYolcuTelefon);
 
@@ -215,7 +287,7 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     Text = "Koltuk No:",
                     AutoSize = false,
                     Size = new Size(90,23),
-                    Location = new Point(320,50),
+                    Location = new Point(320,10),
                     Font = new Font("Segoe UI", 10, FontStyle.Bold),
                     ForeColor = Color.White,
                 };
@@ -229,7 +301,7 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     PlaceholderText = "Adınız",
                     FillColor = Color.FromArgb(244, 245, 245),
                     Size = new Size(150, 20),
-                    Location = new Point(121, 50),
+                    Location = new Point(121, 10),
                     ForeColor = Color.Black,
                     Animated = true,
                 };
@@ -243,7 +315,7 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     PlaceholderText = "Soyadınız",
                     FillColor = Color.FromArgb(244, 245, 245),
                     Size = new Size(150, 20),
-                    Location = new Point(121, 90),
+                    Location = new Point(121, 50),
                     ForeColor = Color.Black,
                     Animated = true,
                 };
@@ -257,7 +329,7 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     PlaceholderText = "Telefonunuz",
                     FillColor = Color.FromArgb(244, 245, 245),
                     Size = new Size(150, 20),
-                    Location = new Point(121, 130),
+                    Location = new Point(121, 90),
                     ForeColor = Color.Black,
                     Animated = true,
                 };
@@ -271,7 +343,7 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     PlaceholderText = "Koltuk No",
                     FillColor = Color.FromArgb(244, 245, 245),
                     Size = new Size(150, 20),
-                    Location = new Point(420, 50),
+                    Location = new Point(420, 10),
                     ForeColor = Color.Black,
                     Animated = true,
                     Enabled = false,
@@ -284,7 +356,7 @@ namespace BuBilet_V_0._0._1.Sayfalar
                     Name = "BtnBiletAl",
                     Text = "Bilet Al",
                     Size = new Size(100,40),
-                    Location = new Point(420,110),
+                    Location = new Point(420,70),
                     BorderRadius = 17,
                     Animated = true,
                     ForeColor = Color.White,
@@ -333,7 +405,7 @@ namespace BuBilet_V_0._0._1.Sayfalar
                 }
 
                 panel.Controls.Add(koltukPaneli);
-                yolcuBilgiPaneli.Controls.Add(seferBilgisi);
+                //yolcuBilgiPaneli.Controls.Add(seferBilgisi);
                 panel.Controls.Add(yolcuBilgiPaneli);
             }
             else
@@ -373,29 +445,40 @@ namespace BuBilet_V_0._0._1.Sayfalar
         //Bilet Al butonu için event
         private void BtnBiletAl_Click(object sender, EventArgs e)
         {
-
-            if (sender is Guna2Button button && button.Tag is Panel otobusPaneli)
+            int kullaniciID;
+            if (Int32.TryParse(LblKullaniciID.Text, out kullaniciID))
             {
-                var seferBilgileriLabel = otobusPaneli.Controls
-                                              .OfType<Label>()
-                                              .FirstOrDefault(lbl => lbl.Name.StartsWith("seferBilgileri"));
-                string seferNo = seferBilgileriLabel != null ? seferBilgileriLabel.Text : string.Empty;
-
-                var yolcuBilgiPaneli = otobusPaneli.Controls
-                                           .OfType<Panel>()
-                                           .FirstOrDefault(p => p.Name == "yolcuBilgiPaneli");
-
-                if (yolcuBilgiPaneli != null)
+                if (kullaniciID > 0)
                 {
-                    var txtYolcuKoltuk = yolcuBilgiPaneli.Controls
-                                                         .OfType<Guna2TextBox>()
-                                                         .FirstOrDefault(txt => txt.Name == "TxtYolcuKoltuk");
-                    int koltukNo = txtYolcuKoltuk != null && int.TryParse(txtYolcuKoltuk.Text, out int result) ? result : -1;
+                    if (sender is Guna2Button button && button.Tag is Panel otobusPaneli)
+                    {
+                        var seferBilgileriLabel = otobusPaneli.Controls
+                                                      .OfType<Label>()
+                                                      .FirstOrDefault(lbl => lbl.Name.StartsWith("seferBilgileri"));
+                        string seferNo = seferBilgileriLabel != null ? seferBilgileriLabel.Text : string.Empty;
 
-                    
-                    MessageBox.Show($"Sefer No: {seferNo}, Koltuk No: {koltukNo}");
+                        var yolcuBilgiPaneli = otobusPaneli.Controls
+                                                   .OfType<Panel>()
+                                                   .FirstOrDefault(p => p.Name == "yolcuBilgiPaneli");
+
+                        if (yolcuBilgiPaneli != null)
+                        {
+                            var txtYolcuKoltuk = yolcuBilgiPaneli.Controls
+                                                                 .OfType<Guna2TextBox>()
+                                                                 .FirstOrDefault(txt => txt.Name == "TxtYolcuKoltuk");
+                            int koltukNo = txtYolcuKoltuk != null && int.TryParse(txtYolcuKoltuk.Text, out int result) ? result : -1;
+
+
+                            MessageBox.Show($"Sefer No: {seferNo}, Koltuk No: {koltukNo}");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Bilet alabilmek için giriş yapmalısınız.","UYARI",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
             }
+            
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)

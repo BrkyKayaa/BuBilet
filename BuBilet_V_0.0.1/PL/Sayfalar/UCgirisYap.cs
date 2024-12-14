@@ -14,17 +14,17 @@ namespace BuBilet_V_0._0._1.Sayfalar
 {
     public partial class UCgirisYap : UserControl
     {
+        public int KullaniciID { get; set; }
+
+        public event Action<int> GirisYapildi;
+
         public UCgirisYap()
         {
             InitializeComponent();
+            PnlGirisYapAnaPanel.Controls.Add(PnlHesapBilgileri);
         }
 
         bool pnlKayitOlExpanded = false;
-
-        private void UCgirisYap_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void TxtKullaniciAdi_MouseClick(object sender, MouseEventArgs e)
         {
@@ -79,32 +79,42 @@ namespace BuBilet_V_0._0._1.Sayfalar
             panelEkle(kayitSayfasi);
         }
 
-        NpgsqlConnection baglan = new NpgsqlConnection("Server=localhost;port=5432;Database=VTYS-proje;User Id=postgres;Password=admin123;");
         private void BtnGirisYap_Click(object sender, EventArgs e)
         {
 
-            using (baglan)
+            // Veritabanı bağlantısı oluşturma kısmı
+            using (var conn = new NpgsqlConnection(Baglanti.ConnectionString))
             {
                 try
                 {
-                    baglan.Open();
+                    conn.Open();
 
-                    string query = "SELECT COUNT(*) FROM kullanicilar WHERE kullaniciad = @p1 AND kullanicisifre = @p2;";
+                    // Sorgu: Girdiği bilgilere göre kullanıcıyı ve tüm sütunları seçecek
+                    string query = "SELECT * FROM kullanicilar WHERE kullaniciad = @p1 AND kullanicisifre = @p2;";
 
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query,baglan))
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@p1", TxtKullaniciAdi.Text);
                         cmd.Parameters.AddWithValue("@p2", TxtSifre.Text);
 
-                        int result = Convert.ToInt32(cmd.ExecuteScalar());
+                        // Sorguyu çalıştır ve sonucu oku
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Eğer kullanıcı bulunduysa kullaniciID değerini al ve sakla
+                                int kullaniciID = reader.GetInt32(reader.GetOrdinal("kullaniciid"));
 
-                        if(result == 1)
-                        {
-                            MessageBox.Show("Başarılı");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Başarısız");
+                                MessageBox.Show("Giriş Başarılı");
+
+                                // Giriş yapıldığında kullanıcıID'yi Form1'e ilet
+                                GirisYapildi?.Invoke(kullaniciID);
+                            }
+                            else
+                            {
+                                // Kullanıcı girişi hatalı ise
+                                MessageBox.Show("Kullanıcı adı veya şifre yanlış!");
+                            }
                         }
                     }
                 }
@@ -112,11 +122,12 @@ namespace BuBilet_V_0._0._1.Sayfalar
                 {
                     MessageBox.Show($"Hata: {ex.Message}");
                 }
-                finally
-                {
-                    baglan.Close();
-                }
             }
+        }
+
+        private void UCgirisYap_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

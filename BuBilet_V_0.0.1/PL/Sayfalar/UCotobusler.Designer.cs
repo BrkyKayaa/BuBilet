@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCotobusler));
             this.CmbxNereye = new Guna.UI2.WinForms.Guna2ComboBox();
             this.PnlSearch = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.BtnDegistir = new Guna.UI2.WinForms.Guna2CircleButton();
             this.CmbxNereden = new Guna.UI2.WinForms.Guna2ComboBox();
             this.BtnOtobusAra = new Guna.UI2.WinForms.Guna2Button();
@@ -39,6 +42,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -51,7 +55,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.LblKullaniciID = new System.Windows.Forms.Label();
+            this.PnlOtobuslerAnaPanel = new System.Windows.Forms.Panel();
             this.PnlSearch.SuspendLayout();
             this.FlwPnlBiletler.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -156,7 +161,7 @@
             "YALOVA",
             "YOZGAT",
             "ZONGULDAK"});
-            this.CmbxNereye.Location = new System.Drawing.Point(256, 27);
+            this.CmbxNereye.Location = new System.Drawing.Point(264, 39);
             this.CmbxNereye.Name = "CmbxNereye";
             this.CmbxNereye.Size = new System.Drawing.Size(211, 36);
             this.CmbxNereye.TabIndex = 3;
@@ -164,6 +169,9 @@
             // PnlSearch
             // 
             this.PnlSearch.BackColor = System.Drawing.Color.Transparent;
+            this.PnlSearch.Controls.Add(this.label10);
+            this.PnlSearch.Controls.Add(this.label9);
+            this.PnlSearch.Controls.Add(this.label8);
             this.PnlSearch.Controls.Add(this.BtnDegistir);
             this.PnlSearch.Controls.Add(this.CmbxNereden);
             this.PnlSearch.Controls.Add(this.BtnOtobusAra);
@@ -178,6 +186,39 @@
             this.PnlSearch.Size = new System.Drawing.Size(925, 100);
             this.PnlSearch.TabIndex = 4;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label10.Location = new System.Drawing.Point(584, 13);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 23);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Tarih";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label9.Location = new System.Drawing.Point(324, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 23);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Varış Yeri";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label8.Location = new System.Drawing.Point(58, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(91, 23);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Kalkış Yeri";
+            // 
             // BtnDegistir
             // 
             this.BtnDegistir.Animated = true;
@@ -189,7 +230,7 @@
             this.BtnDegistir.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtnDegistir.ForeColor = System.Drawing.Color.Transparent;
             this.BtnDegistir.Image = ((System.Drawing.Image)(resources.GetObject("BtnDegistir.Image")));
-            this.BtnDegistir.Location = new System.Drawing.Point(210, 29);
+            this.BtnDegistir.Location = new System.Drawing.Point(218, 41);
             this.BtnDegistir.Name = "BtnDegistir";
             this.BtnDegistir.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.BtnDegistir.Size = new System.Drawing.Size(40, 40);
@@ -293,7 +334,7 @@
             "YALOVA",
             "YOZGAT",
             "ZONGULDAK"});
-            this.CmbxNereden.Location = new System.Drawing.Point(5, 27);
+            this.CmbxNereden.Location = new System.Drawing.Point(13, 39);
             this.CmbxNereden.Name = "CmbxNereden";
             this.CmbxNereden.Size = new System.Drawing.Size(199, 36);
             this.CmbxNereden.TabIndex = 6;
@@ -310,7 +351,7 @@
             this.BtnOtobusAra.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(155)))), ((int)(((byte)(120)))));
             this.BtnOtobusAra.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnOtobusAra.ForeColor = System.Drawing.Color.White;
-            this.BtnOtobusAra.Location = new System.Drawing.Point(752, 21);
+            this.BtnOtobusAra.Location = new System.Drawing.Point(760, 33);
             this.BtnOtobusAra.Name = "BtnOtobusAra";
             this.BtnOtobusAra.Size = new System.Drawing.Size(154, 54);
             this.BtnOtobusAra.TabIndex = 5;
@@ -326,7 +367,7 @@
             this.DtpckTarih.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.DtpckTarih.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.DtpckTarih.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.DtpckTarih.Location = new System.Drawing.Point(480, 31);
+            this.DtpckTarih.Location = new System.Drawing.Point(488, 43);
             this.DtpckTarih.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.DtpckTarih.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.DtpckTarih.Name = "DtpckTarih";
@@ -387,6 +428,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(600, 150);
             this.panel2.TabIndex = 0;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BorderRadius = 19;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(155)))), ((int)(((byte)(120)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(469, 105);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(100, 40);
+            this.guna2Button1.TabIndex = 7;
+            this.guna2Button1.Text = "Bilet Al";
             // 
             // guna2TextBox3
             // 
@@ -572,39 +631,44 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Sefer Bilgisi:";
             // 
-            // guna2Button1
+            // LblKullaniciID
             // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BorderRadius = 19;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(155)))), ((int)(((byte)(120)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(469, 105);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(100, 40);
-            this.guna2Button1.TabIndex = 7;
-            this.guna2Button1.Text = "Bilet Al";
+            this.LblKullaniciID.AutoSize = true;
+            this.LblKullaniciID.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblKullaniciID.ForeColor = System.Drawing.Color.White;
+            this.LblKullaniciID.Location = new System.Drawing.Point(133, 55);
+            this.LblKullaniciID.Name = "LblKullaniciID";
+            this.LblKullaniciID.Size = new System.Drawing.Size(20, 23);
+            this.LblKullaniciID.TabIndex = 5;
+            this.LblKullaniciID.Text = "0";
+            // 
+            // PnlOtobuslerAnaPanel
+            // 
+            this.PnlOtobuslerAnaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlOtobuslerAnaPanel.Location = new System.Drawing.Point(0, 0);
+            this.PnlOtobuslerAnaPanel.Name = "PnlOtobuslerAnaPanel";
+            this.PnlOtobuslerAnaPanel.Size = new System.Drawing.Size(1653, 964);
+            this.PnlOtobuslerAnaPanel.TabIndex = 6;
             // 
             // UCotobusler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
+            this.Controls.Add(this.LblKullaniciID);
             this.Controls.Add(this.FlwPnlBiletler);
             this.Controls.Add(this.PnlSearch);
+            this.Controls.Add(this.PnlOtobuslerAnaPanel);
             this.Name = "UCotobusler";
             this.Size = new System.Drawing.Size(1653, 964);
             this.PnlSearch.ResumeLayout(false);
+            this.PnlSearch.PerformLayout();
             this.FlwPnlBiletler.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -632,5 +696,10 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label LblKullaniciID;
+        private System.Windows.Forms.Panel PnlOtobuslerAnaPanel;
     }
 }

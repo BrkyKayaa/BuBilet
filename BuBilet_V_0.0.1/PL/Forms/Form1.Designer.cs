@@ -49,6 +49,7 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.TmrSideBarTransition = new System.Windows.Forms.Timer(this.components);
             this.PnlAnaPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.LblKullaniciID = new System.Windows.Forms.Label();
             this.PnlSidebar.SuspendLayout();
             this.PnlSidebarTop.SuspendLayout();
             this.PnlSidebarBottom.SuspendLayout();
@@ -239,6 +240,7 @@
             this.BtnCikisYap.Text = "   Çıkış Yap";
             this.BtnCikisYap.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnCikisYap.TextOffset = new System.Drawing.Point(10, 0);
+            this.BtnCikisYap.Click += new System.EventHandler(this.BtnCikisYap_Click);
             // 
             // BtnGirisYap
             // 
@@ -269,6 +271,7 @@
             // PnlNavbar
             // 
             this.PnlNavbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(58)))), ((int)(((byte)(111)))));
+            this.PnlNavbar.Controls.Add(this.LblKullaniciID);
             this.PnlNavbar.Controls.Add(this.guna2CirclePictureBox1);
             this.PnlNavbar.Controls.Add(this.LblTitle);
             this.PnlNavbar.Controls.Add(this.guna2CbxMinimize);
@@ -361,6 +364,17 @@
             this.PnlAnaPanel.TabIndex = 2;
             this.PnlAnaPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlAnaPanel_Paint);
             // 
+            // LblKullaniciID
+            // 
+            this.LblKullaniciID.AutoSize = true;
+            this.LblKullaniciID.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblKullaniciID.ForeColor = System.Drawing.Color.White;
+            this.LblKullaniciID.Location = new System.Drawing.Point(725, 20);
+            this.LblKullaniciID.Name = "LblKullaniciID";
+            this.LblKullaniciID.Size = new System.Drawing.Size(20, 23);
+            this.LblKullaniciID.TabIndex = 9;
+            this.LblKullaniciID.Text = "0";
+            // 
             // FrmBuBilet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -407,6 +421,7 @@
         private Guna.UI2.WinForms.Guna2Panel PnlAnaPanel;
         private System.Windows.Forms.Label LblTitle;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private System.Windows.Forms.Label LblKullaniciID;
     }
 }
 

@@ -13,6 +13,18 @@ namespace BuBilet_V_0._0._1
 {
     public partial class FrmBuBilet : Form
     {
+        private int _kullaniciID;
+        public int KullaniciID
+        {
+            get => _kullaniciID;
+            set
+            {
+                _kullaniciID = value;
+                // KullanıcıID'yi label'da göster
+                LblKullaniciID.Text = value > 0 ? $"{value}" : "0";
+            }
+        }
+
         public FrmBuBilet()
         {
             InitializeComponent();
@@ -26,12 +38,21 @@ namespace BuBilet_V_0._0._1
 
         public void panelEkle(UserControl sayfalar)
         {
+            // Gelen UserControl'ü ana panele ekle
             sayfalar.Dock = DockStyle.Fill;
             PnlAnaPanel.Controls.Clear();
             PnlAnaPanel.Controls.Add(sayfalar);
             sayfalar.BringToFront();
+
+            // Eğer sayfanın KullaniciID özelliği varsa kullanıcıID'yi sayfaya aktar
+            var propertyInfo = sayfalar.GetType().GetProperty("KullaniciID");
+            if (propertyInfo != null && propertyInfo.PropertyType == typeof(int))
+            {
+                propertyInfo.SetValue(sayfalar, KullaniciID);
+            }
         }
 
+        // Sidebar kontrollerini devre dışı bıraktık bu kodlar geçersiz
         private void BtnSideBarControl_Click(object sender, EventArgs e)
         {
             TmrSideBarTransition.Start();
@@ -39,6 +60,7 @@ namespace BuBilet_V_0._0._1
 
         bool sideBarExpand = true;
 
+        // Sidebar kontrolleri devre dışı bu kodlar geçersiz
         private void TmrSideBarTransition_Tick(object sender, EventArgs e)
         {
             if (!sideBarExpand)
@@ -61,6 +83,7 @@ namespace BuBilet_V_0._0._1
             }
         }
 
+        #region Buton Kontrolleri
         private void BtnOtobus_Click(object sender, EventArgs e)
         {
             UCotobusler otobusBiletleriSayfasi = new UCotobusler();
@@ -87,13 +110,40 @@ namespace BuBilet_V_0._0._1
 
         private void BtnGirisYap_Click(object sender, EventArgs e)
         {
-            UCgirisYap girisYapmaSayfasi = new UCgirisYap();
-            panelEkle(girisYapmaSayfasi);
+            UCgirisYap girisYap = new UCgirisYap();
+            girisYap.GirisYapildi += GirisYapildi;
+            panelEkle(girisYap);
+        }
+
+        // Giriş yapıldıktan sonra KullanıcıID'yi aktarmak için event
+        private void GirisYapildi(int kullaniciID)
+        {
+            KullaniciID = kullaniciID; // Form1'de kullanıcıID'yi güncelle
+            UCotobusler otobusler = new UCotobusler();
+            panelEkle(otobusler); // Otobüsler sayfasına geç
         }
 
         private void PnlAnaPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void BtnCikisYap_Click(object sender, EventArgs e)
+        {
+            if(KullaniciID != 0)
+            {
+                KullaniciID = 0; // KullanıcıID sıfırlandı
+                UCgirisYap girisYap = new UCgirisYap();
+                girisYap.GirisYapildi += GirisYapildi; // Giriş eventini tekrar bağla
+                panelEkle(girisYap);
+            }
+            else
+            {
+                MessageBox.Show("Zaten giriş yapmamış durumdasınız.","UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+        }
+
+        #endregion
     }
 }

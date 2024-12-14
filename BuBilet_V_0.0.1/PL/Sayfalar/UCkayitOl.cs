@@ -30,5 +30,10 @@ namespace BuBilet_V_0._0._1.PL.Sayfalar
             TxtSifre.Text = string.Empty;
             TxtTelefon.Text = string.Empty;
         }
+
+        private void BtnKayitOl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
