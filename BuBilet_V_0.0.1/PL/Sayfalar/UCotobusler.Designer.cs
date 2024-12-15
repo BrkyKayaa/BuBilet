@@ -382,7 +382,7 @@
             this.FlwPnlBiletler.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FlwPnlBiletler.Controls.Add(this.panel1);
             this.FlwPnlBiletler.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FlwPnlBiletler.Location = new System.Drawing.Point(468, 214);
+            this.FlwPnlBiletler.Location = new System.Drawing.Point(468, 222);
             this.FlwPnlBiletler.Name = "FlwPnlBiletler";
             this.FlwPnlBiletler.Size = new System.Drawing.Size(925, 685);
             this.FlwPnlBiletler.TabIndex = 0;

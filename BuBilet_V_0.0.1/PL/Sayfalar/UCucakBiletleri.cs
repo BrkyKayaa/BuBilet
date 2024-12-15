@@ -223,17 +223,24 @@ namespace BuBilet_V_0._0._1.Sayfalar
 
         private void BtnBiletAl_Click(object sender, EventArgs e)
         {
-
-            if (sender is Guna2Button button && button.Tag is Guna2Panel ucakPanelleri)
+            if(KullaniciID < 1) 
             {
-                var seferBilgileriLabel = ucakPanelleri.Controls
-                                              .OfType<Label>()
-                                              .FirstOrDefault(lbl => lbl.Name.StartsWith("seferBilgileri"));
-                string seferNo = seferBilgileriLabel != null ? seferBilgileriLabel.Text : string.Empty;
+                MessageBox.Show("Bilet almak için giriş yapmalısınız.","UYARI",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (sender is Guna2Button button && button.Tag is Guna2Panel ucakPanelleri)
+                {
+                    var seferBilgileriLabel = ucakPanelleri.Controls
+                                                  .OfType<Label>()
+                                                  .FirstOrDefault(lbl => lbl.Name.StartsWith("seferBilgileri"));
+                    string seferNo = seferBilgileriLabel != null ? seferBilgileriLabel.Text : string.Empty;
 
 
                     MessageBox.Show($"Sefer No: {seferNo}");
                 }
             }
+        }
+            
         }
 }

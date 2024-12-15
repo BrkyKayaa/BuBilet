@@ -53,8 +53,8 @@ namespace BuBilet_V_0._0._1
                         {
                             string kullaniciTuru = dataReader["kullaniciTuru"].ToString();
 
-                            //  adminse seferEkle butonunu gorunur yap degilse gizle
-                            if (kullaniciTuru == "admin")
+                            //  adminse seferEkle butonunu gorunur yap degilse gizle (Yine Admin küçük harfle yazmışın büyüğe çevirdim düzeltirsin.)
+                            if (kullaniciTuru == "Admin")
                                 BtnOSEAktiflestir();
                             else
                                 BtnOSEGizle();

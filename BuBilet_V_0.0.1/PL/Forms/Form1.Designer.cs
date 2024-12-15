@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuBilet));
             this.PnlSidebar = new Guna.UI2.WinForms.Guna2Panel();
+            this.BtnOtobusSeferiEkle = new Guna.UI2.WinForms.Guna2Button();
             this.PnlSidebarTop = new Guna.UI2.WinForms.Guna2Panel();
             this.BtnSideBarControl = new Guna.UI2.WinForms.Guna2Button();
             this.BtnOtobus = new Guna.UI2.WinForms.Guna2Button();
@@ -50,7 +51,6 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.TmrSideBarTransition = new System.Windows.Forms.Timer(this.components);
             this.PnlAnaPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.BtnOtobusSeferiEkle = new Guna.UI2.WinForms.Guna2Button();
             this.PnlSidebar.SuspendLayout();
             this.PnlSidebarTop.SuspendLayout();
             this.PnlSidebarBottom.SuspendLayout();
@@ -71,6 +71,32 @@
             this.PnlSidebar.Name = "PnlSidebar";
             this.PnlSidebar.Size = new System.Drawing.Size(265, 961);
             this.PnlSidebar.TabIndex = 0;
+            // 
+            // BtnOtobusSeferiEkle
+            // 
+            this.BtnOtobusSeferiEkle.Animated = true;
+            this.BtnOtobusSeferiEkle.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnOtobusSeferiEkle.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnOtobusSeferiEkle.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnOtobusSeferiEkle.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnOtobusSeferiEkle.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnOtobusSeferiEkle.FillColor = System.Drawing.Color.Transparent;
+            this.BtnOtobusSeferiEkle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnOtobusSeferiEkle.ForeColor = System.Drawing.Color.White;
+            this.BtnOtobusSeferiEkle.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnOtobusSeferiEkle.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.BtnOtobusSeferiEkle.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.BtnOtobusSeferiEkle.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnOtobusSeferiEkle.ImageOffset = new System.Drawing.Point(4, 0);
+            this.BtnOtobusSeferiEkle.ImageSize = new System.Drawing.Size(32, 32);
+            this.BtnOtobusSeferiEkle.Location = new System.Drawing.Point(0, 781);
+            this.BtnOtobusSeferiEkle.Name = "BtnOtobusSeferiEkle";
+            this.BtnOtobusSeferiEkle.Size = new System.Drawing.Size(265, 60);
+            this.BtnOtobusSeferiEkle.TabIndex = 13;
+            this.BtnOtobusSeferiEkle.Text = "Otobüs Seferi Ekle";
+            this.BtnOtobusSeferiEkle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnOtobusSeferiEkle.TextOffset = new System.Drawing.Point(10, 0);
+            this.BtnOtobusSeferiEkle.Click += new System.EventHandler(this.BtnOtobusSeferiEkle_Click);
             // 
             // PnlSidebarTop
             // 
@@ -213,9 +239,9 @@
             this.PnlSidebarBottom.Controls.Add(this.BtnCikisYap);
             this.PnlSidebarBottom.Controls.Add(this.BtnGirisYap);
             this.PnlSidebarBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PnlSidebarBottom.Location = new System.Drawing.Point(0, 812);
+            this.PnlSidebarBottom.Location = new System.Drawing.Point(0, 841);
             this.PnlSidebarBottom.Name = "PnlSidebarBottom";
-            this.PnlSidebarBottom.Size = new System.Drawing.Size(265, 149);
+            this.PnlSidebarBottom.Size = new System.Drawing.Size(265, 120);
             this.PnlSidebarBottom.TabIndex = 8;
             // 
             // BtnCikisYap
@@ -225,6 +251,7 @@
             this.BtnCikisYap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.BtnCikisYap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.BtnCikisYap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnCikisYap.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnCikisYap.FillColor = System.Drawing.Color.Transparent;
             this.BtnCikisYap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnCikisYap.ForeColor = System.Drawing.Color.White;
@@ -235,9 +262,9 @@
             this.BtnCikisYap.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnCikisYap.ImageOffset = new System.Drawing.Point(5, 0);
             this.BtnCikisYap.ImageSize = new System.Drawing.Size(32, 32);
-            this.BtnCikisYap.Location = new System.Drawing.Point(0, 96);
+            this.BtnCikisYap.Location = new System.Drawing.Point(0, 60);
             this.BtnCikisYap.Name = "BtnCikisYap";
-            this.BtnCikisYap.Size = new System.Drawing.Size(265, 53);
+            this.BtnCikisYap.Size = new System.Drawing.Size(265, 60);
             this.BtnCikisYap.TabIndex = 12;
             this.BtnCikisYap.Text = "   Çıkış Yap";
             this.BtnCikisYap.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -251,6 +278,7 @@
             this.BtnGirisYap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.BtnGirisYap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.BtnGirisYap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnGirisYap.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnGirisYap.FillColor = System.Drawing.Color.Transparent;
             this.BtnGirisYap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnGirisYap.ForeColor = System.Drawing.Color.White;
@@ -261,9 +289,9 @@
             this.BtnGirisYap.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnGirisYap.ImageOffset = new System.Drawing.Point(4, 0);
             this.BtnGirisYap.ImageSize = new System.Drawing.Size(32, 32);
-            this.BtnGirisYap.Location = new System.Drawing.Point(0, 37);
+            this.BtnGirisYap.Location = new System.Drawing.Point(0, 0);
             this.BtnGirisYap.Name = "BtnGirisYap";
-            this.BtnGirisYap.Size = new System.Drawing.Size(265, 53);
+            this.BtnGirisYap.Size = new System.Drawing.Size(265, 60);
             this.BtnGirisYap.TabIndex = 11;
             this.BtnGirisYap.Text = "   Giriş Yap!";
             this.BtnGirisYap.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -376,31 +404,6 @@
             this.PnlAnaPanel.Size = new System.Drawing.Size(1654, 961);
             this.PnlAnaPanel.TabIndex = 2;
             this.PnlAnaPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlAnaPanel_Paint);
-            // 
-            // BtnOtobusSeferiEkle
-            // 
-            this.BtnOtobusSeferiEkle.Animated = true;
-            this.BtnOtobusSeferiEkle.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnOtobusSeferiEkle.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnOtobusSeferiEkle.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnOtobusSeferiEkle.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnOtobusSeferiEkle.FillColor = System.Drawing.Color.Transparent;
-            this.BtnOtobusSeferiEkle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnOtobusSeferiEkle.ForeColor = System.Drawing.Color.White;
-            this.BtnOtobusSeferiEkle.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnOtobusSeferiEkle.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnOtobusSeferiEkle.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.BtnOtobusSeferiEkle.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnOtobusSeferiEkle.ImageOffset = new System.Drawing.Point(4, 0);
-            this.BtnOtobusSeferiEkle.ImageSize = new System.Drawing.Size(32, 32);
-            this.BtnOtobusSeferiEkle.Location = new System.Drawing.Point(0, 753);
-            this.BtnOtobusSeferiEkle.Name = "BtnOtobusSeferiEkle";
-            this.BtnOtobusSeferiEkle.Size = new System.Drawing.Size(265, 53);
-            this.BtnOtobusSeferiEkle.TabIndex = 13;
-            this.BtnOtobusSeferiEkle.Text = "Otobüs Seferi Ekle";
-            this.BtnOtobusSeferiEkle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BtnOtobusSeferiEkle.TextOffset = new System.Drawing.Point(10, 0);
-            this.BtnOtobusSeferiEkle.Click += new System.EventHandler(this.BtnOtobusSeferiEkle_Click);
             // 
             // FrmBuBilet
             // 

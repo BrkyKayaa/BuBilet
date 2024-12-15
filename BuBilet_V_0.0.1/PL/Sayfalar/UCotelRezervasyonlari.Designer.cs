@@ -68,7 +68,7 @@
             this.FlwPnlOteller.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FlwPnlOteller.Controls.Add(this.panel1);
             this.FlwPnlOteller.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FlwPnlOteller.Location = new System.Drawing.Point(364, 193);
+            this.FlwPnlOteller.Location = new System.Drawing.Point(468, 222);
             this.FlwPnlOteller.Name = "FlwPnlOteller";
             this.FlwPnlOteller.Size = new System.Drawing.Size(925, 685);
             this.FlwPnlOteller.TabIndex = 5;
@@ -326,7 +326,7 @@
             this.PnlSearch.Controls.Add(this.BtnOtelAra);
             this.PnlSearch.Controls.Add(this.DtpckGirisTarih);
             this.PnlSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(58)))), ((int)(((byte)(111)))));
-            this.PnlSearch.Location = new System.Drawing.Point(364, 87);
+            this.PnlSearch.Location = new System.Drawing.Point(468, 108);
             this.PnlSearch.Name = "PnlSearch";
             this.PnlSearch.Radius = 10;
             this.PnlSearch.ShadowColor = System.Drawing.Color.DimGray;

@@ -105,8 +105,8 @@ namespace BuBilet_V_0._0._1.Sayfalar
                                 //Veritabanindan kullanici turu cekilir.
                                 string kullaniciTuru = dataReader["kullaniciTuru"].ToString();
 
-                                //Eger kullanici turu adminse butonlar gorunur hâle gelir.
-                                if (kullaniciTuru == "admin")
+                                //Eger kullanici turu adminse butonlar gorunur hâle gelir. (Admin değil de admin yazmışsın sende admin olması lazım değişirsin)
+                                if (kullaniciTuru == "Admin")
                                 {
                                     //Bulunan kullaniciID'yi sakla
                                     int kullaniciID = dataReader.GetInt32(dataReader.GetOrdinal("kullaniciid"));
@@ -120,7 +120,7 @@ namespace BuBilet_V_0._0._1.Sayfalar
                                 //Eger kullanici musteri ise normal giris yapilir.
                                 else
                                 {
-                                    if (kullaniciTuru == "musteri")
+                                    if (kullaniciTuru == "Musteri")
                                     {
                                         //Bulunan kullanici ID'sini sakla
                                         int kullaniciID = dataReader.GetInt32(dataReader.GetOrdinal("kullaniciid"));
@@ -131,7 +131,8 @@ namespace BuBilet_V_0._0._1.Sayfalar
                                         GirisYapildi?.Invoke(kullaniciID);
                                     }
                                 }
-                            }else
+                            }
+                            else
                             {
                                 //Eger sonuc okunmamis ise kullaniciAdi ya da sifre hatalidir.
                                 MessageBox.Show("Kullanıcı adı veya şifre yanlış!");
@@ -195,10 +196,6 @@ namespace BuBilet_V_0._0._1.Sayfalar
         {
 
         }
-
-
-
-
 
     }
 }

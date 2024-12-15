@@ -9,7 +9,12 @@ namespace BuBilet_V_0._0._1
 {
     internal class Baglanti
     {
-        public static string ConnectionString = "Server = localhost; port=5432;Database=BuBilet;User Id = postgres; Password=ahmet1234;";
-        public static NpgsqlConnection baglan = new NpgsqlConnection("Server = localhost; port=5432;Database=BuBilet;User Id = postgres; Password=ahmet1234;");
+        // Berkay'ın PostgreSQL bilgileri
+        public static string ConnectionString = "Server = localhost; port=5432;Database=BuBilet;User Id = postgres; Password=admin123;";
+        public static NpgsqlConnection baglan = new NpgsqlConnection("Server = localhost; port=5432;Database=BuBilet;User Id = postgres; Password=admin123;");
+
+        // Ahmet'in PostgreSQL bilgileri
+        //public static string ConnectionString = "Server = localhost; port=5432;Database=BuBilet;User Id = postgres; Password=ahmet1234;";
+        //public static NpgsqlConnection baglan = new NpgsqlConnection("Server = localhost; port=5432;Database=BuBilet;User Id = postgres; Password=ahmet1234;");
     }
 }
