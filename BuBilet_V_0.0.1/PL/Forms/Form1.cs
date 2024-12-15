@@ -1,4 +1,6 @@
-﻿using BuBilet_V_0._0._1.Sayfalar;
+﻿using BuBilet_V_0._0._1.PL.Sayfalar;
+using BuBilet_V_0._0._1.Sayfalar;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +24,44 @@ namespace BuBilet_V_0._0._1
                 _kullaniciID = value;
                 // KullanıcıID'yi label'da göster
                 LblKullaniciID.Text = value > 0 ? $"{value}" : "0";
+                adminKontrol(value);
+            }
+        }
+
+        /* 
+           VALLA VALUE MALUE BİSİLER DENEDİM SENİN YAPTIGIN GİBİ 
+           BECEREMEDİM EGER ASAGIDAKİ FONKSİYONU YAZMASAM BİLEKLERİMİ KESECEKTİM ALLAMA
+           
+           Bunu direkt kullaniciAdi sifre kontrol kismina ekleyecektim ama sen kullaniciID
+           gonderen event ekledigin icin cakisiyo ilerde duzenlerim
+        */
+        public void adminKontrol(int kullaniciID)
+        {
+            using (var connection = new NpgsqlConnection(Baglanti.ConnectionString))
+            {
+                connection.Open();
+
+                //  kullaniciID'ye gore kullaniciTuru sec
+                string query = "SELECT kullaniciTuru FROM Kullanicilar WHERE kullaniciID = @kullaniciID";
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@kullaniciID", kullaniciID);
+                    using (NpgsqlDataReader dataReader = command.ExecuteReader())
+                    {
+                        if(dataReader.Read())
+                        {
+                            string kullaniciTuru = dataReader["kullaniciTuru"].ToString();
+
+                            //  adminse seferEkle butonunu gorunur yap degilse gizle
+                            if (kullaniciTuru == "admin")
+                                BtnOSEAktiflestir();
+                            else
+                                BtnOSEGizle();
+                        } 
+
+                    }
+                }
             }
         }
 
@@ -34,6 +74,7 @@ namespace BuBilet_V_0._0._1
             this.Location = workingArea.Location;
 
             this.StartPosition = FormStartPosition.Manual;
+            BtnOtobusSeferiEkle.Visible = false;
         }
 
         public void panelEkle(UserControl sayfalar)
@@ -50,6 +91,16 @@ namespace BuBilet_V_0._0._1
             {
                 propertyInfo.SetValue(sayfalar, KullaniciID);
             }
+        }
+
+        //Otobus Seferi Ekle butonunu aktiflestirir ve gizler
+        public void BtnOSEAktiflestir()
+        {
+            BtnOtobusSeferiEkle.Visible = true;
+        }
+        public void BtnOSEGizle()
+        {
+            BtnOtobusSeferiEkle.Visible = false;
         }
 
         // Sidebar kontrollerini devre dışı bıraktık bu kodlar geçersiz
@@ -133,6 +184,7 @@ namespace BuBilet_V_0._0._1
             if(KullaniciID != 0)
             {
                 KullaniciID = 0; // KullanıcıID sıfırlandı
+                BtnOSEGizle();  //Admin cikis yapmis ise butonlar gizlenir.
                 UCgirisYap girisYap = new UCgirisYap();
                 girisYap.GirisYapildi += GirisYapildi; // Giriş eventini tekrar bağla
                 panelEkle(girisYap);
@@ -145,5 +197,11 @@ namespace BuBilet_V_0._0._1
         }
 
         #endregion
+
+        private void BtnOtobusSeferiEkle_Click(object sender, EventArgs e)
+        {
+            UCotobusSeferiEkle UCotobusSeferiEkle = new UCotobusSeferiEkle();
+            panelEkle(UCotobusSeferiEkle);
+        }
     }
 }

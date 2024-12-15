@@ -82,13 +82,77 @@ namespace BuBilet_V_0._0._1.Sayfalar
         private void BtnGirisYap_Click(object sender, EventArgs e)
         {
 
-            // Veritabanı bağlantısı oluşturma kısmı
+            // Veritabanı bağlantısı oluşturulur
             using (var conn = new NpgsqlConnection(Baglanti.ConnectionString))
             {
+                
                 try
                 {
                     conn.Open();
 
+                    //Girilen kullanici adina gore kullanicinin turu secilir.
+                    string query = "SELECT * FROM Kullanicilar WHERE kullaniciAd = @kullaniciAdi AND kullaniciSifre = @kullaniciSifre";
+                    using (NpgsqlCommand command = new NpgsqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@kullaniciAdi", TxtKullaniciAdi.Text);
+                        command.Parameters.AddWithValue("@kullaniciSifre", TxtSifre.Text);
+                        
+                        using (NpgsqlDataReader dataReader = command.ExecuteReader())
+                        {
+                            //Eger sonuc okunmus ise
+                            if(dataReader.Read())
+                            {
+                                //Veritabanindan kullanici turu cekilir.
+                                string kullaniciTuru = dataReader["kullaniciTuru"].ToString();
+
+                                //Eger kullanici turu adminse butonlar gorunur hâle gelir.
+                                if (kullaniciTuru == "admin")
+                                {
+                                    //Bulunan kullaniciID'yi sakla
+                                    int kullaniciID = dataReader.GetInt32(dataReader.GetOrdinal("kullaniciid"));
+                                    
+                                    MessageBox.Show("Giriş Başarılı");
+                                    
+                                    //KullaniciID'yi Form1'e ilet
+                                    GirisYapildi?.Invoke(kullaniciID);
+                                    
+                                }
+                                //Eger kullanici musteri ise normal giris yapilir.
+                                else
+                                {
+                                    if (kullaniciTuru == "musteri")
+                                    {
+                                        //Bulunan kullanici ID'sini sakla
+                                        int kullaniciID = dataReader.GetInt32(dataReader.GetOrdinal("kullaniciid"));
+                                        
+                                        MessageBox.Show("Giriş Başarılı");
+                                        
+                                        //KullaniciID'yi Form1'e ilet
+                                        GirisYapildi?.Invoke(kullaniciID);
+                                    }
+                                }
+                            }else
+                            {
+                                //Eger sonuc okunmamis ise kullaniciAdi ya da sifre hatalidir.
+                                MessageBox.Show("Kullanıcı adı veya şifre yanlış!");
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Hata: {ex.Message}");
+                }
+
+
+                /*
+                try
+                {
+                    conn.Open();
+
+
+                    
                     // Sorgu: Girdiği bilgilere göre kullanıcıyı ve tüm sütunları seçecek
                     string query = "SELECT * FROM kullanicilar WHERE kullaniciad = @p1 AND kullanicisifre = @p2;";
 
@@ -122,12 +186,19 @@ namespace BuBilet_V_0._0._1.Sayfalar
                 {
                     MessageBox.Show($"Hata: {ex.Message}");
                 }
+               */
             }
+        
+        
         }
-
         private void UCgirisYap_Load(object sender, EventArgs e)
         {
 
         }
+
+
+
+
+
     }
 }

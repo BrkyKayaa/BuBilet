@@ -41,6 +41,7 @@
             this.BtnCikisYap = new Guna.UI2.WinForms.Guna2Button();
             this.BtnGirisYap = new Guna.UI2.WinForms.Guna2Button();
             this.PnlNavbar = new Guna.UI2.WinForms.Guna2Panel();
+            this.LblKullaniciID = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.LblTitle = new System.Windows.Forms.Label();
             this.guna2CbxMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -49,7 +50,7 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.TmrSideBarTransition = new System.Windows.Forms.Timer(this.components);
             this.PnlAnaPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.LblKullaniciID = new System.Windows.Forms.Label();
+            this.BtnOtobusSeferiEkle = new Guna.UI2.WinForms.Guna2Button();
             this.PnlSidebar.SuspendLayout();
             this.PnlSidebarTop.SuspendLayout();
             this.PnlSidebarBottom.SuspendLayout();
@@ -60,6 +61,7 @@
             // PnlSidebar
             // 
             this.PnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(58)))), ((int)(((byte)(111)))));
+            this.PnlSidebar.Controls.Add(this.BtnOtobusSeferiEkle);
             this.PnlSidebar.Controls.Add(this.PnlSidebarTop);
             this.PnlSidebar.Controls.Add(this.PnlSidebarBottom);
             this.PnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
@@ -94,7 +96,7 @@
             this.BtnSideBarControl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtnSideBarControl.ForeColor = System.Drawing.Color.White;
             this.BtnSideBarControl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnSideBarControl.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.BtnSideBarControl.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.BtnSideBarControl.Image = ((System.Drawing.Image)(resources.GetObject("BtnSideBarControl.Image")));
             this.BtnSideBarControl.Location = new System.Drawing.Point(77, 372);
             this.BtnSideBarControl.Name = "BtnSideBarControl";
@@ -114,7 +116,7 @@
             this.BtnOtobus.ForeColor = System.Drawing.Color.White;
             this.BtnOtobus.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnOtobus.HoverState.ForeColor = System.Drawing.Color.Transparent;
-            this.BtnOtobus.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.BtnOtobus.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.BtnOtobus.Image = ((System.Drawing.Image)(resources.GetObject("BtnOtobus.Image")));
             this.BtnOtobus.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnOtobus.ImageOffset = new System.Drawing.Point(5, 0);
@@ -140,7 +142,7 @@
             this.BtnUcak.ForeColor = System.Drawing.Color.White;
             this.BtnUcak.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnUcak.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnUcak.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.BtnUcak.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.BtnUcak.Image = ((System.Drawing.Image)(resources.GetObject("BtnUcak.Image")));
             this.BtnUcak.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnUcak.ImageOffset = new System.Drawing.Point(5, 0);
@@ -166,7 +168,7 @@
             this.BtnBilet.ForeColor = System.Drawing.Color.White;
             this.BtnBilet.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnBilet.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnBilet.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.BtnBilet.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.BtnBilet.Image = ((System.Drawing.Image)(resources.GetObject("BtnBilet.Image")));
             this.BtnBilet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnBilet.ImageOffset = new System.Drawing.Point(5, 0);
@@ -192,7 +194,7 @@
             this.BtnOtel.ForeColor = System.Drawing.Color.White;
             this.BtnOtel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnOtel.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnOtel.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.BtnOtel.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             this.BtnOtel.Image = ((System.Drawing.Image)(resources.GetObject("BtnOtel.Image")));
             this.BtnOtel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnOtel.ImageOffset = new System.Drawing.Point(5, 0);
@@ -228,7 +230,7 @@
             this.BtnCikisYap.ForeColor = System.Drawing.Color.White;
             this.BtnCikisYap.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnCikisYap.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnCikisYap.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.BtnCikisYap.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
             this.BtnCikisYap.Image = ((System.Drawing.Image)(resources.GetObject("BtnCikisYap.Image")));
             this.BtnCikisYap.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnCikisYap.ImageOffset = new System.Drawing.Point(5, 0);
@@ -254,7 +256,7 @@
             this.BtnGirisYap.ForeColor = System.Drawing.Color.White;
             this.BtnGirisYap.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnGirisYap.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.BtnGirisYap.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+            this.BtnGirisYap.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
             this.BtnGirisYap.Image = ((System.Drawing.Image)(resources.GetObject("BtnGirisYap.Image")));
             this.BtnGirisYap.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnGirisYap.ImageOffset = new System.Drawing.Point(4, 0);
@@ -282,6 +284,17 @@
             this.PnlNavbar.Name = "PnlNavbar";
             this.PnlNavbar.Size = new System.Drawing.Size(1919, 58);
             this.PnlNavbar.TabIndex = 1;
+            // 
+            // LblKullaniciID
+            // 
+            this.LblKullaniciID.AutoSize = true;
+            this.LblKullaniciID.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblKullaniciID.ForeColor = System.Drawing.Color.White;
+            this.LblKullaniciID.Location = new System.Drawing.Point(725, 20);
+            this.LblKullaniciID.Name = "LblKullaniciID";
+            this.LblKullaniciID.Size = new System.Drawing.Size(20, 23);
+            this.LblKullaniciID.TabIndex = 9;
+            this.LblKullaniciID.Text = "0";
             // 
             // guna2CirclePictureBox1
             // 
@@ -364,16 +377,30 @@
             this.PnlAnaPanel.TabIndex = 2;
             this.PnlAnaPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlAnaPanel_Paint);
             // 
-            // LblKullaniciID
+            // BtnOtobusSeferiEkle
             // 
-            this.LblKullaniciID.AutoSize = true;
-            this.LblKullaniciID.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblKullaniciID.ForeColor = System.Drawing.Color.White;
-            this.LblKullaniciID.Location = new System.Drawing.Point(725, 20);
-            this.LblKullaniciID.Name = "LblKullaniciID";
-            this.LblKullaniciID.Size = new System.Drawing.Size(20, 23);
-            this.LblKullaniciID.TabIndex = 9;
-            this.LblKullaniciID.Text = "0";
+            this.BtnOtobusSeferiEkle.Animated = true;
+            this.BtnOtobusSeferiEkle.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnOtobusSeferiEkle.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnOtobusSeferiEkle.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnOtobusSeferiEkle.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnOtobusSeferiEkle.FillColor = System.Drawing.Color.Transparent;
+            this.BtnOtobusSeferiEkle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnOtobusSeferiEkle.ForeColor = System.Drawing.Color.White;
+            this.BtnOtobusSeferiEkle.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnOtobusSeferiEkle.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.BtnOtobusSeferiEkle.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.BtnOtobusSeferiEkle.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnOtobusSeferiEkle.ImageOffset = new System.Drawing.Point(4, 0);
+            this.BtnOtobusSeferiEkle.ImageSize = new System.Drawing.Size(32, 32);
+            this.BtnOtobusSeferiEkle.Location = new System.Drawing.Point(0, 753);
+            this.BtnOtobusSeferiEkle.Name = "BtnOtobusSeferiEkle";
+            this.BtnOtobusSeferiEkle.Size = new System.Drawing.Size(265, 53);
+            this.BtnOtobusSeferiEkle.TabIndex = 13;
+            this.BtnOtobusSeferiEkle.Text = "Otobüs Seferi Ekle";
+            this.BtnOtobusSeferiEkle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnOtobusSeferiEkle.TextOffset = new System.Drawing.Point(10, 0);
+            this.BtnOtobusSeferiEkle.Click += new System.EventHandler(this.BtnOtobusSeferiEkle_Click);
             // 
             // FrmBuBilet
             // 
@@ -422,6 +449,7 @@
         private System.Windows.Forms.Label LblTitle;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Label LblKullaniciID;
+        private Guna.UI2.WinForms.Guna2Button BtnOtobusSeferiEkle;
     }
 }
 
