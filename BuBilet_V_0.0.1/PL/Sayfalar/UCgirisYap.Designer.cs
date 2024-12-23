@@ -43,6 +43,7 @@
             this.BtnKayitOl = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.PnlHesapBilgileri = new Guna.UI2.WinForms.Guna2Panel();
+            this.PnlGirisYapAnaPanel = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PbxPassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbxUser)).BeginInit();
             this.PnlKayıtOl.SuspendLayout();
@@ -74,6 +75,7 @@
             this.BtnGirisYap.Size = new System.Drawing.Size(170, 37);
             this.BtnGirisYap.TabIndex = 2;
             this.BtnGirisYap.Text = "Giriş Yap!";
+            this.BtnGirisYap.Click += new System.EventHandler(this.BtnGirisYap_Click);
             // 
             // panel2
             // 
@@ -112,7 +114,7 @@
             this.TxtSifre.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TxtSifre.Name = "TxtSifre";
             this.TxtSifre.PasswordChar = '●';
-            this.TxtSifre.PlaceholderText = "Şifre";
+            this.TxtSifre.PlaceholderText = "Şifreniz";
             this.TxtSifre.SelectedText = "";
             this.TxtSifre.Size = new System.Drawing.Size(345, 33);
             this.TxtSifre.TabIndex = 1;
@@ -145,7 +147,7 @@
             this.TxtKullaniciAdi.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TxtKullaniciAdi.Name = "TxtKullaniciAdi";
             this.TxtKullaniciAdi.PasswordChar = '\0';
-            this.TxtKullaniciAdi.PlaceholderText = "Kullanıcı Adı";
+            this.TxtKullaniciAdi.PlaceholderText = "Adınız";
             this.TxtKullaniciAdi.SelectedText = "";
             this.TxtKullaniciAdi.Size = new System.Drawing.Size(345, 33);
             this.TxtKullaniciAdi.TabIndex = 0;
@@ -246,12 +248,21 @@
             this.PnlHesapBilgileri.Size = new System.Drawing.Size(450, 620);
             this.PnlHesapBilgileri.TabIndex = 1001;
             // 
+            // PnlGirisYapAnaPanel
+            // 
+            this.PnlGirisYapAnaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlGirisYapAnaPanel.Location = new System.Drawing.Point(0, 0);
+            this.PnlGirisYapAnaPanel.Name = "PnlGirisYapAnaPanel";
+            this.PnlGirisYapAnaPanel.Size = new System.Drawing.Size(1653, 964);
+            this.PnlGirisYapAnaPanel.TabIndex = 1002;
+            // 
             // UCgirisYap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(40)))), ((int)(((byte)(51)))));
             this.Controls.Add(this.PnlHesapBilgileri);
+            this.Controls.Add(this.PnlGirisYapAnaPanel);
             this.Name = "UCgirisYap";
             this.Size = new System.Drawing.Size(1653, 964);
             this.Load += new System.EventHandler(this.UCgirisYap_Load);
@@ -279,5 +290,6 @@
         private Guna.UI2.WinForms.Guna2Button BtnKayitOl;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Panel PnlHesapBilgileri;
+        private Guna.UI2.WinForms.Guna2Panel PnlGirisYapAnaPanel;
     }
 }

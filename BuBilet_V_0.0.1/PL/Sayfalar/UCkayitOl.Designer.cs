@@ -221,6 +221,7 @@
             this.BtnKayitOl.Size = new System.Drawing.Size(180, 45);
             this.BtnKayitOl.TabIndex = 10;
             this.BtnKayitOl.Text = "Kayıt Ol!";
+            this.BtnKayitOl.Click += new System.EventHandler(this.BtnKayitOl_Click);
             // 
             // LblAlanlariTemizle
             // 

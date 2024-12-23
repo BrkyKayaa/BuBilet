@@ -84,17 +84,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baglanti.cs" />
+    <Compile Include="Paneller.cs" />
     <Compile Include="PL\Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PL\Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Sayfalar\UCbiletGorunum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCbiletGorunum.Designer.cs">
+      <DependentUpon>UCbiletGorunum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCbiletlerim.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCbiletlerim.Designer.cs">
+      <DependentUpon>UCbiletlerim.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\Sayfalar\UCkayitOl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PL\Sayfalar\UCkayitOl.Designer.cs">
       <DependentUpon>UCkayitOl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCotobusEkle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCotobusEkle.Designer.cs">
+      <DependentUpon>UCotobusEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCotobusSeferiEkle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCotobusSeferiEkle.Designer.cs">
+      <DependentUpon>UCotobusSeferiEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCucakSeferleri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\Sayfalar\UCucakSeferleri.Designer.cs">
+      <DependentUpon>UCucakSeferleri.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,8 +163,23 @@
     <EmbeddedResource Include="PL\Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\Sayfalar\UCbiletGorunum.resx">
+      <DependentUpon>UCbiletGorunum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Sayfalar\UCbiletlerim.resx">
+      <DependentUpon>UCbiletlerim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\Sayfalar\UCkayitOl.resx">
       <DependentUpon>UCkayitOl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Sayfalar\UCotobusEkle.resx">
+      <DependentUpon>UCotobusEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Sayfalar\UCotobusSeferiEkle.resx">
+      <DependentUpon>UCotobusSeferiEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Sayfalar\UCucakSeferleri.resx">
+      <DependentUpon>UCucakSeferleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -174,7 +221,61 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\icons8-arrow-32 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-32 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-boarding-pass-32-normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-boarding-pass-32-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-log-in-32-normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-log-in-32-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-32-normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-32-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-properties-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-properties-32 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-properties-32 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-configuration-32-normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-configuration-32-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-confirm-32-normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-confirm-32-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-my-ticket-32-normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-my-ticket-32-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-template-tear-off-ticket-pass-png-image_6236402.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
