@@ -1,4 +1,5 @@
 ﻿using BuBilet_V_0._0._1.PL.Sayfalar;
+using BuBilet_V_0._0._1.Properties;
 using BuBilet_V_0._0._1.Sayfalar;
 using Npgsql;
 using System;
@@ -25,16 +26,14 @@ namespace BuBilet_V_0._0._1
                 // KullanıcıID'yi label'da göster
                 LblKullaniciID.Text = value > 0 ? $"{value}" : "0";
                 adminKontrol(value);
+                if (value > 0) 
+                {
+                    BtnBiletlerim.Visible = true;
+                }
             }
         }
 
-        /* 
-           VALLA VALUE MALUE BİSİLER DENEDİM SENİN YAPTIGIN GİBİ 
-           BECEREMEDİM EGER ASAGIDAKİ FONKSİYONU YAZMASAM BİLEKLERİMİ KESECEKTİM ALLAMA
-           
-           Bunu direkt kullaniciAdi sifre kontrol kismina ekleyecektim ama sen kullaniciID
-           gonderen event ekledigin icin cakisiyo ilerde duzenlerim
-        */
+        // Kullanıcı Turu Adminse bazı işlevler ekle
         public void adminKontrol(int kullaniciID)
         {
             using (var connection = new NpgsqlConnection(Baglanti.ConnectionString))
@@ -55,9 +54,9 @@ namespace BuBilet_V_0._0._1
 
                             //  adminse seferEkle butonunu gorunur yap degilse gizle (Yine Admin küçük harfle yazmışın büyüğe çevirdim düzeltirsin.)
                             if (kullaniciTuru == "Admin")
-                                BtnOSEAktiflestir();
+                                BtnKontrollerAktiflestir();
                             else
-                                BtnOSEGizle();
+                                BtnKontrollerGizle();
                         } 
 
                     }
@@ -74,7 +73,7 @@ namespace BuBilet_V_0._0._1
             this.Location = workingArea.Location;
 
             this.StartPosition = FormStartPosition.Manual;
-            BtnOtobusSeferiEkle.Visible = false;
+            BtnKontroller.Visible = false;
         }
 
         public void panelEkle(UserControl sayfalar)
@@ -93,42 +92,32 @@ namespace BuBilet_V_0._0._1
             }
         }
 
-        //Otobus Seferi Ekle butonunu aktiflestirir ve gizler
-        public void BtnOSEAktiflestir()
-        {
-            BtnOtobusSeferiEkle.Visible = true;
-        }
-        public void BtnOSEGizle()
-        {
-            BtnOtobusSeferiEkle.Visible = false;
-        }
-
-        // Sidebar kontrollerini devre dışı bıraktık bu kodlar geçersiz
+        // Sidebar kontrolleri için Timer Event'i
         private void BtnSideBarControl_Click(object sender, EventArgs e)
         {
             TmrSideBarTransition.Start();
         }
 
-        bool sideBarExpand = true;
+        bool pnlKontrollerExpand = false;
 
-        // Sidebar kontrolleri devre dışı bu kodlar geçersiz
+        // PnlKontroller panelinin genişlemesi
         private void TmrSideBarTransition_Tick(object sender, EventArgs e)
         {
-            if (!sideBarExpand)
+            if (!pnlKontrollerExpand)
             {
-                PnlSidebar.Width += 10;
-                if (PnlSidebar.Width >= PnlSidebar.MaximumSize.Width)
+                PnlKontroller.Height += 10;
+                if (PnlKontroller.Height >= PnlKontroller.MaximumSize.Height)
                 {
-                    sideBarExpand = true;
+                    pnlKontrollerExpand = true;
                     TmrSideBarTransition.Stop();
                 }
             }
             else
             {
-                PnlSidebar.Width -= 10;
-                if (PnlSidebar.Width <= PnlSidebar.MinimumSize.Width)
+                PnlKontroller.Height -= 10;
+                if (PnlKontroller.Height <= PnlKontroller.MinimumSize.Height)
                 {
-                    sideBarExpand = false;
+                    pnlKontrollerExpand = false;
                     TmrSideBarTransition.Stop();
                 }
             }
@@ -184,7 +173,8 @@ namespace BuBilet_V_0._0._1
             if(KullaniciID != 0)
             {
                 KullaniciID = 0; // KullanıcıID sıfırlandı
-                BtnOSEGizle();  //Admin cikis yapmis ise butonlar gizlenir.
+                BtnKontrollerGizle();  //Admin cikis yapmis ise butonlar gizlenir.
+                BtnBiletlerim.Visible = false;
                 UCgirisYap girisYap = new UCgirisYap();
                 girisYap.GirisYapildi += GirisYapildi; // Giriş eventini tekrar bağla
                 panelEkle(girisYap);
@@ -202,6 +192,44 @@ namespace BuBilet_V_0._0._1
         {
             UCotobusSeferiEkle UCotobusSeferiEkle = new UCotobusSeferiEkle();
             panelEkle(UCotobusSeferiEkle);
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            TmrSideBarTransition.Start();
+        }
+
+        private void BtnKontrollerGizle()
+        {
+            BtnKontroller.Visible = false;
+        }
+
+        private void BtnKontrollerAktiflestir()
+        {
+            BtnKontroller.Visible = true;
+        }
+
+        private void BtnOtobusEkle_Click(object sender, EventArgs e)
+        {
+            UCotobusEkle otobusEkle = new UCotobusEkle();
+            panelEkle(otobusEkle);
+        }
+
+        private void BtnUcakSeferEkle_Click(object sender, EventArgs e)
+        {
+            UCucakSeferleri ucakSeferleri = new UCucakSeferleri();
+            panelEkle(ucakSeferleri);
+        }
+
+        private void BtnUcakEkle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnBiletlerim_Click(object sender, EventArgs e)
+        {
+            UCbiletlerim biletlerim = new UCbiletlerim();
+            panelEkle(biletlerim);
         }
     }
 }

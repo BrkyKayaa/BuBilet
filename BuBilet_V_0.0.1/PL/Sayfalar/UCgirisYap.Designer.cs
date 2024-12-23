@@ -114,7 +114,7 @@
             this.TxtSifre.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TxtSifre.Name = "TxtSifre";
             this.TxtSifre.PasswordChar = '●';
-            this.TxtSifre.PlaceholderText = "Şifre";
+            this.TxtSifre.PlaceholderText = "Şifreniz";
             this.TxtSifre.SelectedText = "";
             this.TxtSifre.Size = new System.Drawing.Size(345, 33);
             this.TxtSifre.TabIndex = 1;
@@ -147,7 +147,7 @@
             this.TxtKullaniciAdi.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TxtKullaniciAdi.Name = "TxtKullaniciAdi";
             this.TxtKullaniciAdi.PasswordChar = '\0';
-            this.TxtKullaniciAdi.PlaceholderText = "Kullanıcı Adı";
+            this.TxtKullaniciAdi.PlaceholderText = "Adınız";
             this.TxtKullaniciAdi.SelectedText = "";
             this.TxtKullaniciAdi.Size = new System.Drawing.Size(345, 33);
             this.TxtKullaniciAdi.TabIndex = 0;

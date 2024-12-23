@@ -532,6 +532,7 @@
             this.LblKullaniciID.Size = new System.Drawing.Size(20, 23);
             this.LblKullaniciID.TabIndex = 7;
             this.LblKullaniciID.Text = "0";
+            this.LblKullaniciID.Visible = false;
             // 
             // UCotelRezervasyonlari
             // 
